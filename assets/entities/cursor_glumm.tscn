@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://crpyt41trbvma"]
+[gd_scene format=3 uid="uid://crpyt41trbvma"]
 
 [ext_resource type="Texture2D" uid="uid://sev1svf0mygc" path="res://assets/images/glummsheet.png" id="1_jdsly"]
 [ext_resource type="Script" uid="uid://bhpc6iblxiuh0" path="res://scripts/cursor_glumm.gd" id="1_sk542"]
@@ -566,7 +566,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tywse")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 40.0
 }]
@@ -574,16 +574,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hewd"]
 radius = 27.0185
 
-[node name="cursorGlumm" type="Area2D"]
+[node name="cursorGlumm" type="Area2D" unique_id=239277879]
 collision_layer = 2
 script = ExtResource("1_sk542")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1575842647]
 z_index = 5
 sprite_frames = SubResource("SpriteFrames_uk5jj")
 autoplay = "default"
 frame_progress = 0.0882039
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085842859]
 position = Vector2(-14, 0)
 shape = SubResource("CircleShape2D_3hewd")

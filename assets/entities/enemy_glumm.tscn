@@ -1,13 +1,7 @@
-[gd_scene format=3 uid="uid://dkmtntvo6b6sy"]
+[gd_scene format=3 uid="uid://dg4gul6trhflv"]
 
-[ext_resource type="Script" uid="uid://bj0ctckf4ebbq" path="res://scripts/enemy_glumm.gd" id="1_ccvwr"]
 [ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="2_lfhol"]
 
-[node name="EnemyGlumm" type="Node2D" unique_id=139539675]
-modulate = Color(1, 0, 0, 1)
-script = ExtResource("1_ccvwr")
-
-[node name="glumm" parent="." unique_id=677997489 instance=ExtResource("2_lfhol")]
-collision_mask = 7
+[node name="EnemyGlumm" unique_id=2136826150 instance=ExtResource("2_lfhol")]
+col = Color(1, 0, 0, 1)
 type = "enemy"
-respawnmax = 15
