@@ -1,14 +1,11 @@
-extends Node2D
-var game_manager: Node
-var projectile_holder: Node
-var proj_scene = preload('res://assets/projectiles/yellow_projectile.tscn')
-@onready var glumm = $glumm
+extends GlummBody
 
 func _ready():
-	glumm.dy = 1000
-	glumm.dx = randi_range(-60, 60)
+	dy = 1000
+	dx = randi_range(-60, 60)
+	startup()
 	
-func _on_glumm_clicked() -> void:
+func glumm_click():
 	var available = [1, 2, 3, 4, 5]
 	for i in game_manager.global["Yellow Projectiles"]:
 		var chosen_num = available.pick_random()

@@ -1,14 +1,10 @@
-[gd_scene format=3 uid="uid://pd7nhqvxj65"]
+[gd_scene format=3 uid="uid://bffmfotv5k12p"]
 
 [ext_resource type="Script" uid="uid://dnycyvdbvkcux" path="res://scripts/yellow_glumm.gd" id="1_gbgvm"]
 [ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="2_13vja"]
+[ext_resource type="PackedScene" uid="uid://cpe385a7dgml" path="res://assets/projectiles/yellow_projectile.tscn" id="3_13vja"]
 
-[node name="YellowGlumm" type="Node2D" unique_id=716509360]
-modulate = Color(1, 1, 0, 1)
+[node name="YellowGlumm" unique_id=2136826150 instance=ExtResource("2_13vja")]
 script = ExtResource("1_gbgvm")
-
-[node name="glumm" parent="." unique_id=1082395173 instance=ExtResource("2_13vja")]
-respawnmin = 15
-respawnmax = 25
-
-[connection signal="clicked" from="glumm" to="." method="_on_glumm_clicked"]
+col = Color(1, 1, 0, 1)
+proj_scene = ExtResource("3_13vja")

@@ -600,5 +600,5 @@ volume_db = -10.0
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="boom" from="." to="." method="_on_boom"]
-[connection signal="clicked" from="." to="glumm_respawn_timer" method="_on_glumm_clicked"]
+[connection signal="clicked" from="." to="." method="_on_clicked"]
 [connection signal="timeout" from="glumm_respawn_timer" to="." method="_on_glumm_respawn_timer_timeout"]

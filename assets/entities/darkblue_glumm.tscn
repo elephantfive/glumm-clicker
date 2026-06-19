@@ -1,19 +1,16 @@
-[gd_scene format=3 uid="uid://73kmtaot3baw"]
+[gd_scene format=3 uid="uid://di3xgli8qfojw"]
 
 [ext_resource type="Script" uid="uid://cl8drexg3ascs" path="res://scripts/darkblue_glumm.gd" id="1_nw4f5"]
 [ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="2_puwkh"]
+[ext_resource type="PackedScene" uid="uid://dxle8aug101m2" path="res://assets/projectiles/darkblue_projectile.tscn" id="3_puwkh"]
 
-[node name="DarkBlueGlumm" type="Node2D" unique_id=492933982]
-modulate = Color(0.0657879, 0.135196, 0.480451, 1)
+[node name="DarkblueGlumm" unique_id=2136826150 instance=ExtResource("2_puwkh")]
 script = ExtResource("1_nw4f5")
+col = Color(0, 0, 1, 1)
+proj_scene = ExtResource("3_puwkh")
 
-[node name="glumm" parent="." unique_id=2018034181 instance=ExtResource("2_puwkh")]
-speedmin = -50.0
-speedmax = 50.0
-respawnmin = 15
-respawnmax = 25
+[node name="Timer" type="Timer" parent="." index="5" unique_id=2015531988]
+wait_time = 5.0
+autostart = true
 
-[node name="Timer" type="Timer" parent="." unique_id=51489879]
-
-[connection signal="clicked" from="glumm" to="." method="_on_glumm_clicked"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

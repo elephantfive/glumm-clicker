@@ -1,6 +1,4 @@
-extends Node2D
-var game_manager: Node
-var projectile_holder: Node
+extends GlummBody
 
-func _on_glumm_clicked() -> void:
+func glumm_click():
 	game_manager.global["Score"] += 1

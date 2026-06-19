@@ -1,6 +1,10 @@
 class_name GlummBody
 
 extends Area2D
+@export var col: Color
+var game_manager: Node
+var projectile_holder: Node
+@export var proj_scene: PackedScene
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var burst_player = $AudioStreamPlayer2D
 const WIDTH = 30
@@ -8,7 +12,6 @@ const HEIGHT = 30
 var explode = false
 signal clicked
 signal boom
-var game_manager: Node
 @export var type: String
 @export var speedmin:float = -600
 @export var speedmax:float = 600
@@ -21,12 +24,15 @@ var start_dy
 @onready var glumm_respawn_timer: Timer = $glumm_respawn_timer
 
 func _ready():
-	game_manager = get_parent().game_manager
+	startup()
+
+func startup():
 	start_dx = dx
 	start_dy = dy
+	modulate = col
 	glumm_respawn_timer.set_wait_time(randf_range(respawnmin, respawnmax) + randf_range(-2, 4))
 	set_random_pos()
-	
+
 func set_random_pos():
 	global_position.x = randf_range(WIDTH, get_viewport_rect().size.x)
 	global_position.y = randf_range(HEIGHT, get_viewport_rect().size.y)
@@ -96,3 +102,10 @@ func toggle_active(active:bool):
 	set_deferred("visible", active)
 	set_deferred("monitorable", active)
 	set_deferred("monitoring", active)
+
+
+func _on_clicked():
+	glumm_click()
+	
+func glumm_click():
+	pass
