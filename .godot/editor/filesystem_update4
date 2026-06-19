@@ -16,3 +16,4 @@ res://assets/entities/yellow_glumm.tscn
 res://assets/entities/white_glumm.tscn
 res://scripts/white_glumm.gd
 res://scripts/yellow_glumm.gd
+res://assets/entities/cursor_glumm.tscn

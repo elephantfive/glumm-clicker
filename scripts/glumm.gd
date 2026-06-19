@@ -1,27 +1,33 @@
 class_name GlummBody
 
 extends Area2D
+
+
 @export var col: Color
-var game_manager: Node
-var projectile_holder: Node
 @export var proj_scene: PackedScene
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var burst_player = $AudioStreamPlayer2D
-const WIDTH = 30
-const HEIGHT = 30
-var explode = false
-signal clicked
-signal boom
 @export var type: String
 @export var speedmin:float = -600
 @export var speedmax:float = 600
 @export var respawnmin = 5
 @export var respawnmax = 10
+
+@onready var burst_player = $AudioStreamPlayer2D
+@onready var glumm_respawn_timer: Timer = $glumm_respawn_timer
+
+signal clicked
+signal boom
+
+const WIDTH = 30
+const HEIGHT = 30
+
+var game_manager: Node
+var projectile_holder: Node
+var explode = false
 var dx = randf_range(speedmin, speedmax)
 var dy = randf_range(speedmin, speedmax)
 var start_dx
 var start_dy
-@onready var glumm_respawn_timer: Timer = $glumm_respawn_timer
+
 
 func _ready():
 	startup()
