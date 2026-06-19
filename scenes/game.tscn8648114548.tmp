@@ -1,0 +1,304 @@
+[gd_scene load_steps=14 format=3 uid="uid://cs1m2ujhyh2uu"]
+
+[ext_resource type="Script" uid="uid://h1or2tboq0ex" path="res://scenes/game_manager.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://b0ujudcn6on4l" path="res://assets/images/background.png" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://rb7bjyg7y537" path="res://assets/fonts/flavors.ttf" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://crpyt41trbvma" path="res://assets/entities/cursor_glumm.tscn" id="2_yqjtg"]
+[ext_resource type="AudioStream" uid="uid://d2vqk0lrenu5x" path="res://assets/sounds/braindance.mp3" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://3o3a165p0jga" path="res://assets/entities/glumm_manager.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://de5pqiogw40l" path="res://scenes/main_menu.gd" id="5_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://bwe06gph6r8xd" path="res://assets/sounds/menuselect.wav" id="5_kvuet"]
+[ext_resource type="Script" uid="uid://h4jibq5x57fe" path="res://scripts/main_menu_button.gd" id="5_vtaks"]
+[ext_resource type="Script" uid="uid://eynt4ekae776" path="res://scenes/shop.gd" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://boq41o0mbphtx" path="res://scripts/save_button.gd" id="8_dinhu"]
+[ext_resource type="PackedScene" uid="uid://b1clovoijpowp" path="res://assets/gui/shop_button.tscn" id="8_gee14"]
+[ext_resource type="Script" uid="uid://bnkjsr5vwcvwl" path="res://scenes/save_select.gd" id="9_0tnpc"]
+
+[node name="Game" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_uwrxv")
+
+[node name="GameManager" type="Node" parent="." groups=["Persist"]]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("1_lbhrr")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+visible = false
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 13.0
+offset_top = 19.0
+offset_right = 134.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_iywne")
+theme_override_font_sizes/font_size = 32
+
+[node name="Music" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("3_p57ef")
+volume_db = -25.0
+autoplay = true
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_kvuet")
+volume_db = -25.333
+
+[node name="MainMenu" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_kvpfn")
+
+[node name="title" type="Label" parent="MainMenu"]
+modulate = Color(0.74902, 1, 0.74902, 0.658824)
+offset_right = 1920.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 100
+text = "glumm clicker"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 350.0
+offset_right = 216.0
+offset_bottom = 420.0
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../OptionButton")
+focus_next = NodePath("../OptionButton")
+focus_previous = NodePath("../QuitButton")
+theme_override_font_sizes/font_size = 48
+text = "play"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="OptionButton" type="Button" parent="MainMenu"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 425.0
+offset_right = 216.0
+offset_bottom = 495.0
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
+theme_override_font_sizes/font_size = 48
+text = "options"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="CreditsButton" type="Button" parent="MainMenu"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 500.0
+offset_right = 216.0
+offset_bottom = 570.0
+focus_neighbor_top = NodePath("../OptionButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../OptionButton")
+theme_override_font_sizes/font_size = 48
+text = "credits
+"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="QuitButton" type="Button" parent="MainMenu"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 575.0
+offset_right = 216.0
+offset_bottom = 645.0
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_font_sizes/font_size = 48
+text = "quit
+"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="SaveSelect" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+script = ExtResource("9_0tnpc")
+
+[node name="SaveButton" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton9")
+focus_neighbor_bottom = NodePath("../SaveButton2")
+focus_next = NodePath("../SaveButton2")
+focus_previous = NodePath("../SaveButton9")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 1
+
+[node name="SaveButton2" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton")
+focus_neighbor_bottom = NodePath("../SaveButton3")
+focus_next = NodePath("../SaveButton3")
+focus_previous = NodePath("../SaveButton")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 2
+
+[node name="SaveButton3" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton2")
+focus_neighbor_bottom = NodePath("../SaveButton4")
+focus_next = NodePath("../SaveButton4")
+focus_previous = NodePath("../SaveButton2")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 3
+
+[node name="SaveButton4" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton3")
+focus_neighbor_bottom = NodePath("../SaveButton5")
+focus_next = NodePath("../SaveButton5")
+focus_previous = NodePath("../SaveButton3")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 4
+
+[node name="SaveButton5" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton4")
+focus_neighbor_bottom = NodePath("../SaveButton6")
+focus_next = NodePath("../SaveButton6")
+focus_previous = NodePath("../SaveButton4")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 5
+
+[node name="SaveButton6" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton5")
+focus_neighbor_bottom = NodePath("../SaveButton7")
+focus_next = NodePath("../SaveButton7")
+focus_previous = NodePath("../SaveButton5")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 6
+
+[node name="SaveButton7" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton6")
+focus_neighbor_bottom = NodePath("../SaveButton8")
+focus_next = NodePath("../SaveButton8")
+focus_previous = NodePath("../SaveButton6")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 7
+
+[node name="SaveButton8" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton7")
+focus_neighbor_bottom = NodePath("../SaveButton9")
+focus_next = NodePath("../SaveButton9")
+focus_previous = NodePath("../SaveButton7")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 8
+
+[node name="SaveButton9" type="Button" parent="SaveSelect"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton8")
+focus_neighbor_bottom = NodePath("../SaveButton")
+focus_next = NodePath("../SaveButton")
+focus_previous = NodePath("../SaveButton8")
+theme_override_font_sizes/font_size = 48
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 9
+
+[node name="Play" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+
+[node name="CursorGlumm" parent="Play" instance=ExtResource("2_yqjtg")]
+position = Vector2(967, 530)
+
+[node name="GlummManager" parent="Play" instance=ExtResource("4_lbhrr")]
+
+[node name="ProjectileHolder" type="Node" parent="Play"]
+
+[node name="Shop" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+script = ExtResource("7_u5sy4")
+
+[node name="CursorButton" parent="Shop" instance=ExtResource("8_gee14")]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 429.0
+offset_bottom = 327.0
+parameter = "Increase cursor size"
+increment = 10
+
+[node name="PauseMenu" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+
+[connection signal="mouse_entered" from="MainMenu/PlayButton" to="MainMenu/PlayButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="MainMenu/PlayButton" to="GameManager" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/PlayButton" to="SaveSelect" method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="MainMenu/OptionButton" to="MainMenu/OptionButton" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="MainMenu/CreditsButton" to="MainMenu/CreditsButton" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="MainMenu/QuitButton" to="MainMenu/QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton" to="SaveSelect/SaveButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton" to="SaveSelect/SaveButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton2" to="SaveSelect/SaveButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton2" to="SaveSelect/SaveButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton3" to="SaveSelect/SaveButton3" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton3" to="SaveSelect/SaveButton3" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton4" to="SaveSelect/SaveButton4" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton4" to="SaveSelect/SaveButton4" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton5" to="SaveSelect/SaveButton5" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton5" to="SaveSelect/SaveButton5" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton6" to="SaveSelect/SaveButton6" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton6" to="SaveSelect/SaveButton6" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton7" to="SaveSelect/SaveButton7" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton7" to="SaveSelect/SaveButton7" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton8" to="SaveSelect/SaveButton8" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton8" to="SaveSelect/SaveButton8" method="_on_pressed"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_pressed"]
+[connection signal="pressed" from="Shop/CursorButton" to="Shop" method="_on_cursor_button_pressed"]

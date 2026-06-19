@@ -1,0 +1,14 @@
+Timer
+Area2D
+Node2D
+Label
+AudioStreamPlayer
+Button
+Node
+Control
+TouchScreenButton
+TextureButton
+AnimatedSprite2D
+TextureRect
+CollisionPolygon2D
+AudioStreamPlayer2D

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://3kw470qk6nau"]
+
+[ext_resource type="Script" uid="uid://cgtlohlwcf2wf" path="res://scripts/friend_glumm.gd" id="1_fo4ob"]
+[ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="1_fw3po"]
+
+[node name="friendGlumm" type="Node2D" unique_id=1084945656]
+modulate = Color(0, 1, 0, 1)
+script = ExtResource("1_fo4ob")
+
+[node name="glumm" parent="." unique_id=913787045 instance=ExtResource("1_fw3po")]
+respawnmin = 3
+respawnmax = 6
+
+[connection signal="clicked" from="glumm" to="." method="_on_glumm_clicked"]

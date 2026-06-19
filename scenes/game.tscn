@@ -1,0 +1,590 @@
+[gd_scene format=3 uid="uid://cs1m2ujhyh2uu"]
+
+[ext_resource type="Script" uid="uid://h1or2tboq0ex" path="res://scenes/game_manager.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://b0ujudcn6on4l" path="res://assets/images/background.png" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://rb7bjyg7y537" path="res://assets/fonts/flavors.ttf" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://crpyt41trbvma" path="res://assets/entities/cursor_glumm.tscn" id="2_yqjtg"]
+[ext_resource type="AudioStream" uid="uid://d2vqk0lrenu5x" path="res://assets/sounds/braindance.mp3" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://3o3a165p0jga" path="res://assets/entities/glumm_manager.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://de5pqiogw40l" path="res://scenes/main_menu.gd" id="5_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://bwe06gph6r8xd" path="res://assets/sounds/menuselect.wav" id="5_kvuet"]
+[ext_resource type="Script" uid="uid://h4jibq5x57fe" path="res://scripts/main_menu_button.gd" id="5_vtaks"]
+[ext_resource type="Script" uid="uid://eynt4ekae776" path="res://scenes/shop.gd" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://boq41o0mbphtx" path="res://scripts/save_button.gd" id="8_dinhu"]
+[ext_resource type="PackedScene" uid="uid://b1clovoijpowp" path="res://assets/gui/shop_button.tscn" id="8_gee14"]
+[ext_resource type="Script" uid="uid://bnkjsr5vwcvwl" path="res://scenes/save_select.gd" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://cq174d574pugr" path="res://scenes/pause_menu.gd" id="14_trtic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trtic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ir15t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca42v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rysoc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ssvqc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_264po"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1kice"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5newe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37s47"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bt5mj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1j6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pl11u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhx41"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnb83"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sww3w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_suyxu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sgl2t"]
+
+[node name="Game" type="Node2D" unique_id=1620300805]
+
+[node name="background" type="Sprite2D" parent="." unique_id=1472565497]
+position = Vector2(960, 540)
+texture = ExtResource("1_uwrxv")
+
+[node name="GameManager" type="Node" parent="." unique_id=1067783574 groups=["Persist"]]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("1_lbhrr")
+
+[node name="ScoreLabel" type="Label" parent="GameManager" unique_id=1630772149]
+visible = false
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 13.0
+offset_top = 19.0
+offset_right = 134.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_iywne")
+theme_override_font_sizes/font_size = 32
+
+[node name="Music" type="AudioStreamPlayer" parent="GameManager" unique_id=2036608830]
+stream = ExtResource("3_p57ef")
+volume_db = -25.0
+autoplay = true
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="." unique_id=1787634507]
+unique_name_in_owner = true
+stream = ExtResource("5_kvuet")
+volume_db = -20.0
+
+[node name="MainMenu" type="Node2D" parent="." unique_id=715638042]
+unique_name_in_owner = true
+script = ExtResource("5_kvpfn")
+
+[node name="title" type="Label" parent="MainMenu" unique_id=858569449]
+modulate = Color(0.74902, 1, 0.74902, 0.658824)
+offset_right = 1920.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 100
+text = "glumm clicker"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainMenu" unique_id=1374275116]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 350.0
+offset_right = 216.0
+offset_bottom = 420.0
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../OptionButton")
+focus_next = NodePath("../OptionButton")
+focus_previous = NodePath("../QuitButton")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_trtic")
+text = "play"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="OptionButton" type="Button" parent="MainMenu" unique_id=395090512]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 425.0
+offset_right = 216.0
+offset_bottom = 495.0
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ir15t")
+text = "options"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="CreditsButton" type="Button" parent="MainMenu" unique_id=1979228611]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 500.0
+offset_right = 216.0
+offset_bottom = 570.0
+focus_neighbor_top = NodePath("../OptionButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../OptionButton")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ca42v")
+text = "credits
+"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="QuitButton" type="Button" parent="MainMenu" unique_id=123747891]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 575.0
+offset_right = 216.0
+offset_bottom = 645.0
+focus_neighbor_top = NodePath("../CreditsButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../CreditsButton")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rysoc")
+text = "quit
+"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="SaveSelect" type="Node2D" parent="." unique_id=323473859]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+script = ExtResource("9_0tnpc")
+
+[node name="SaveButton" type="Button" parent="SaveSelect" unique_id=1979607177]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton9")
+focus_neighbor_bottom = NodePath("../SaveButton2")
+focus_next = NodePath("../SaveButton2")
+focus_previous = NodePath("../SaveButton9")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ssvqc")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 1
+
+[node name="SaveButton2" type="Button" parent="SaveSelect" unique_id=1217310873]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton")
+focus_neighbor_bottom = NodePath("../SaveButton3")
+focus_next = NodePath("../SaveButton3")
+focus_previous = NodePath("../SaveButton")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_264po")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 2
+
+[node name="SaveButton3" type="Button" parent="SaveSelect" unique_id=2095787529]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton2")
+focus_neighbor_bottom = NodePath("../SaveButton4")
+focus_next = NodePath("../SaveButton4")
+focus_previous = NodePath("../SaveButton2")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1kice")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 3
+
+[node name="SaveButton4" type="Button" parent="SaveSelect" unique_id=1909580849]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton3")
+focus_neighbor_bottom = NodePath("../SaveButton5")
+focus_next = NodePath("../SaveButton5")
+focus_previous = NodePath("../SaveButton3")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5newe")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 4
+
+[node name="SaveButton5" type="Button" parent="SaveSelect" unique_id=1762674468]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton4")
+focus_neighbor_bottom = NodePath("../SaveButton6")
+focus_next = NodePath("../SaveButton6")
+focus_previous = NodePath("../SaveButton4")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_37s47")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 5
+
+[node name="SaveButton6" type="Button" parent="SaveSelect" unique_id=473148073]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton5")
+focus_neighbor_bottom = NodePath("../SaveButton7")
+focus_next = NodePath("../SaveButton7")
+focus_previous = NodePath("../SaveButton5")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bt5mj")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 6
+
+[node name="SaveButton7" type="Button" parent="SaveSelect" unique_id=195552762]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton6")
+focus_neighbor_bottom = NodePath("../SaveButton8")
+focus_next = NodePath("../SaveButton8")
+focus_previous = NodePath("../SaveButton6")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e1j6l")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 7
+
+[node name="SaveButton8" type="Button" parent="SaveSelect" unique_id=1078960587]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton7")
+focus_neighbor_bottom = NodePath("../SaveButton9")
+focus_next = NodePath("../SaveButton9")
+focus_previous = NodePath("../SaveButton7")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pl11u")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 8
+
+[node name="SaveButton9" type="Button" parent="SaveSelect" unique_id=308043170]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_right = 164.0
+offset_bottom = 93.0
+focus_neighbor_top = NodePath("../SaveButton8")
+focus_neighbor_bottom = NodePath("../SaveButton")
+focus_next = NodePath("../SaveButton")
+focus_previous = NodePath("../SaveButton8")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bhx41")
+flat = true
+script = ExtResource("8_dinhu")
+savefile = 9
+
+[node name="SaveData" type="Label" parent="SaveSelect" unique_id=309925835]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 1300.0
+offset_top = 100.0
+offset_right = 1464.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 48
+
+[node name="title" type="Label" parent="SaveSelect" unique_id=344643136]
+modulate = Color(0.74902, 1, 0.74902, 0.658824)
+offset_right = 1920.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 100
+text = "save select"
+horizontal_alignment = 1
+
+[node name="Play" type="Node2D" parent="." unique_id=280546426]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+
+[node name="CursorGlumm" parent="Play" unique_id=418178749 instance=ExtResource("2_yqjtg")]
+position = Vector2(967, 530)
+
+[node name="GlummManager" parent="Play" unique_id=825087979 instance=ExtResource("4_lbhrr")]
+unique_name_in_owner = true
+
+[node name="ProjectileHolder" type="Node2D" parent="Play" unique_id=2034161681]
+
+[node name="Shop" type="Node2D" parent="." unique_id=404884956]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+script = ExtResource("7_u5sy4")
+
+[node name="background" type="Sprite2D" parent="Shop" unique_id=1249094886]
+position = Vector2(960, 540)
+texture = ExtResource("1_uwrxv")
+
+[node name="CursorButton" parent="Shop" unique_id=1052524241 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 325.0
+offset_bottom = 325.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "Cursor Size"
+parameter_text = "Increase cursor size"
+parameter_increment = 1
+parameter_max = 100
+posx = 1
+posy = 1
+
+[node name="WhiteButton" parent="Shop" unique_id=923316605 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 325.0
+offset_bottom = 325.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "White Glumm Unlocked"
+parameter_text = "Unlock White Glumm"
+parameter_increment = 1
+parameter_max = 1
+posx = 1
+posy = 4
+price = 25
+glumm_spawn = "white"
+
+[node name="BrownButton" parent="Shop" unique_id=1103662233 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 325.0
+offset_bottom = 325.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "Brown Glumm Unlocked"
+parameter_text = "Unlock Brown Glumm"
+parameter_increment = 1
+parameter_max = 1
+posx = 2
+posy = 4
+price = 15
+glumm_spawn = "brown"
+
+[node name="PinkButton" parent="Shop" unique_id=1922941262 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 325.0
+offset_bottom = 325.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "Pink Glumm Unlocked"
+parameter_text = "Unlock Pink Glumm"
+parameter_increment = 1
+parameter_max = 1
+posx = 3
+posy = 4
+price = 50
+glumm_spawn = "pink"
+
+[node name="DarkBlueButton" parent="Shop" unique_id=234527222 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 325.0
+offset_bottom = 325.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "Dark Blue Glumm Unlocked"
+parameter_text = "Unlock Blue Glumm"
+parameter_increment = 1
+parameter_max = 1
+posx = 4
+posy = 4
+price = 75
+glumm_spawn = "darkblue"
+
+[node name="OrangeButton" parent="Shop" unique_id=235350383 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 325.0
+offset_bottom = 325.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "Orange Glumm Unlocked"
+parameter_text = "Unlock Orange Glumm"
+parameter_increment = 1
+parameter_max = 1
+posx = 5
+posy = 4
+price = 125
+glumm_spawn = "orange"
+
+[node name="YellowButton" parent="Shop" unique_id=438396562 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 325.0
+offset_bottom = 325.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "Yellow Glumm Unlocked"
+parameter_text = "Unlock Yellow Glumm"
+parameter_increment = 1
+parameter_max = 1
+posx = 6
+posy = 4
+price = 150
+glumm_spawn = "yellow"
+
+[node name="WhiteProjectilePierceButton" parent="Shop" unique_id=744375404 instance=ExtResource("8_gee14")]
+offset_left = 100.0
+offset_top = 800.0
+offset_right = 325.0
+offset_bottom = 925.0
+focus_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
+parameter = "White Projectile Pierce"
+parameter_text = "Increase white pierce"
+parameter_increment = 1
+parameter_max = 100
+posx = 2
+posy = 1
+
+[node name="PauseMenu" type="Node2D" parent="." unique_id=2028923482]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+script = ExtResource("14_trtic")
+
+[node name="ResumeButton" type="Button" parent="PauseMenu" unique_id=1147283714]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 350.0
+offset_right = 216.0
+offset_bottom = 420.0
+focus_neighbor_top = NodePath("../GameQuit")
+focus_neighbor_bottom = NodePath("../MenuQuit")
+focus_next = NodePath("../MenuQuit")
+focus_previous = NodePath("../GameQuit")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sww3w")
+text = "resume"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="MenuQuit" type="Button" parent="PauseMenu" unique_id=910657527]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 450.0
+offset_right = 418.0
+offset_bottom = 520.0
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../GameQuit")
+focus_next = NodePath("../GameQuit")
+focus_previous = NodePath("../ResumeButton")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_suyxu")
+text = "quit to main menu"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="GameQuit" type="Button" parent="PauseMenu" unique_id=1878286]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 50.0
+offset_top = 550.0
+offset_right = 299.0
+offset_bottom = 620.0
+focus_neighbor_top = NodePath("../MenuQuit")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../MenuQuit")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sgl2t")
+text = "quit game"
+flat = true
+alignment = 0
+script = ExtResource("5_vtaks")
+
+[node name="title" type="Label" parent="PauseMenu" unique_id=661261739]
+modulate = Color(0.74902, 1, 0.74902, 0.658824)
+offset_right = 1920.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 100
+text = "glumm clicker"
+horizontal_alignment = 1
+
+[connection signal="focus_exited" from="MainMenu/PlayButton" to="MainMenu/PlayButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="MainMenu/PlayButton" to="MainMenu/PlayButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="MainMenu/PlayButton" to="GameManager" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/PlayButton" to="SaveSelect" method="_on_play_button_pressed"]
+[connection signal="focus_exited" from="MainMenu/OptionButton" to="MainMenu/OptionButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="MainMenu/OptionButton" to="MainMenu/OptionButton" method="_on_mouse_entered"]
+[connection signal="focus_exited" from="MainMenu/CreditsButton" to="MainMenu/CreditsButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="MainMenu/CreditsButton" to="MainMenu/CreditsButton" method="_on_mouse_entered"]
+[connection signal="focus_exited" from="MainMenu/QuitButton" to="MainMenu/QuitButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="MainMenu/QuitButton" to="MainMenu/QuitButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="MainMenu/QuitButton" to="MainMenu" method="_on_quit_button_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton" to="SaveSelect/SaveButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton" to="SaveSelect/SaveButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton" to="SaveSelect/SaveButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton" to="SaveSelect/SaveButton" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton2" to="SaveSelect/SaveButton2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton2" to="SaveSelect/SaveButton2" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton2" to="SaveSelect/SaveButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton2" to="SaveSelect/SaveButton2" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton3" to="SaveSelect/SaveButton3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton3" to="SaveSelect/SaveButton3" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton3" to="SaveSelect/SaveButton3" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton3" to="SaveSelect/SaveButton3" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton4" to="SaveSelect/SaveButton4" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton4" to="SaveSelect/SaveButton4" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton4" to="SaveSelect/SaveButton4" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton4" to="SaveSelect/SaveButton4" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton5" to="SaveSelect/SaveButton5" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton5" to="SaveSelect/SaveButton5" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton5" to="SaveSelect/SaveButton5" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton5" to="SaveSelect/SaveButton5" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton6" to="SaveSelect/SaveButton6" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton6" to="SaveSelect/SaveButton6" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton6" to="SaveSelect/SaveButton6" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton6" to="SaveSelect/SaveButton6" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton7" to="SaveSelect/SaveButton7" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton7" to="SaveSelect/SaveButton7" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton7" to="SaveSelect/SaveButton7" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton7" to="SaveSelect/SaveButton7" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton8" to="SaveSelect/SaveButton8" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton8" to="SaveSelect/SaveButton8" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton8" to="SaveSelect/SaveButton8" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton8" to="SaveSelect/SaveButton8" method="_on_pressed"]
+[connection signal="focus_entered" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_focus_entered"]
+[connection signal="focus_exited" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_mouse_entered"]
+[connection signal="pressed" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_pressed"]
+[connection signal="pressed" from="Shop/CursorButton" to="Shop/CursorButton" method="_on_pressed"]
+[connection signal="pressed" from="Shop/WhiteButton" to="Shop/WhiteButton" method="_on_pressed"]
+[connection signal="pressed" from="Shop/BrownButton" to="Shop/BrownButton" method="_on_pressed"]
+[connection signal="pressed" from="Shop/PinkButton" to="Shop/PinkButton" method="_on_pressed"]
+[connection signal="pressed" from="Shop/DarkBlueButton" to="Shop/DarkBlueButton" method="_on_pressed"]
+[connection signal="pressed" from="Shop/OrangeButton" to="Shop/OrangeButton" method="_on_pressed"]
+[connection signal="pressed" from="Shop/YellowButton" to="Shop/YellowButton" method="_on_pressed"]
+[connection signal="pressed" from="Shop/WhiteProjectilePierceButton" to="Shop/WhiteProjectilePierceButton" method="_on_pressed"]
+[connection signal="focus_exited" from="PauseMenu/ResumeButton" to="PauseMenu/ResumeButton" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="PauseMenu/ResumeButton" to="PauseMenu/ResumeButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="GameManager" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="GameManager" method="_on_play_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="SaveSelect" method="_on_play_button_pressed"]
+[connection signal="focus_exited" from="PauseMenu/MenuQuit" to="PauseMenu/MenuQuit" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="PauseMenu/MenuQuit" to="PauseMenu/MenuQuit" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/MenuQuit" to="GameManager" method="_on_menu_quit_pressed"]
+[connection signal="focus_exited" from="PauseMenu/GameQuit" to="PauseMenu/GameQuit" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="PauseMenu/GameQuit" to="PauseMenu/GameQuit" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/GameQuit" to="GameManager" method="_on_game_quit_pressed"]

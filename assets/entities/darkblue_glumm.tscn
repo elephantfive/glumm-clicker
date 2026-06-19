@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://73kmtaot3baw"]
+
+[ext_resource type="Script" uid="uid://cl8drexg3ascs" path="res://scripts/darkblue_glumm.gd" id="1_nw4f5"]
+[ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="2_puwkh"]
+
+[node name="DarkBlueGlumm" type="Node2D" unique_id=492933982]
+modulate = Color(0.0657879, 0.135196, 0.480451, 1)
+script = ExtResource("1_nw4f5")
+
+[node name="glumm" parent="." unique_id=2018034181 instance=ExtResource("2_puwkh")]
+speedmin = -50.0
+speedmax = 50.0
+respawnmin = 15
+respawnmax = 25
+
+[node name="Timer" type="Timer" parent="." unique_id=51489879]
+
+[connection signal="clicked" from="glumm" to="." method="_on_glumm_clicked"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://kw0443fhsg5c"]
+
+[ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="1_c85rk"]
+[ext_resource type="Script" uid="uid://bburulccn4rwn" path="res://scripts/white_glumm.gd" id="1_tyura"]
+
+[node name="WhiteGlumm" type="Node2D"]
+script = ExtResource("1_tyura")
+
+[node name="glumm" parent="." instance=ExtResource("1_c85rk")]
+respawnmin = 15
+respawnmax = 25
+
+[connection signal="clicked" from="glumm" to="." method="_on_glumm_clicked"]

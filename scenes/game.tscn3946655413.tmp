@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cs1m2ujhyh2uu"]
+
+[ext_resource type="Script" uid="uid://h1or2tboq0ex" path="res://scenes/game_manager.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://b0ujudcn6on4l" path="res://assets/images/background.png" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://rb7bjyg7y537" path="res://assets/fonts/flavors.ttf" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://crpyt41trbvma" path="res://assets/entities/cursor_glumm.tscn" id="2_yqjtg"]
+[ext_resource type="AudioStream" uid="uid://d2vqk0lrenu5x" path="res://assets/sounds/braindance.mp3" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://3o3a165p0jga" path="res://assets/entities/glumm_manager.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://eynt4ekae776" path="res://scenes/shop.gd" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://b1clovoijpowp" path="res://assets/gui/shop_button.tscn" id="8_gee14"]
+
+[node name="Game" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_uwrxv")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("1_lbhrr")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+modulate = Color(0.74902, 1, 0.74902, 1)
+offset_left = 13.0
+offset_top = 19.0
+offset_right = 134.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_iywne")
+theme_override_font_sizes/font_size = 32
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("3_p57ef")
+volume_db = -25.0
+autoplay = true
+parameters/looping = true
+
+[node name="Play" type="Node2D" parent="."]
+
+[node name="CursorGlumm" parent="Play" instance=ExtResource("2_yqjtg")]
+position = Vector2(967, 530)
+
+[node name="GlummManager" parent="Play" instance=ExtResource("4_lbhrr")]
+
+[node name="Shop" type="Node2D" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("7_u5sy4")
+
+[node name="CursorButton" parent="Shop" instance=ExtResource("8_gee14")]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 429.0
+offset_bottom = 327.0
+parameter = "Increase cursor size"
+increment = 10
+
+[connection signal="pressed" from="Shop/CursorButton" to="Shop" method="_on_cursor_button_pressed"]

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://3o3a165p0jga"]
+
+[ext_resource type="Script" uid="uid://bqmc153vjpbpw" path="res://scripts/glumm_manager.gd" id="1_vxyf1"]
+[ext_resource type="Script" uid="uid://ordy27ouj2ru" path="res://scripts/glumm_timer.gd" id="2_c3sub"]
+
+[node name="glumm_manager" type="Node2D" unique_id=456497758]
+script = ExtResource("1_vxyf1")
+
+[node name="FriendTimer" type="Timer" parent="." unique_id=165032564]
+wait_time = 3.0
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "friend"
+
+[node name="WhiteTimer" type="Timer" parent="." unique_id=1438746075]
+wait_time = 20.0
+one_shot = true
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "White"
+
+[node name="BrownTimer" type="Timer" parent="." unique_id=1233848325]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "Brown"
+
+[node name="PinkTimer" type="Timer" parent="." unique_id=553835192]
+wait_time = 10.0
+one_shot = true
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "Pink"
+
+[node name="DarkBlueTimer" type="Timer" parent="." unique_id=1335439183]
+wait_time = 30.0
+one_shot = true
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "Dark Blue"
+
+[node name="OrangeTimer" type="Timer" parent="." unique_id=365138043]
+wait_time = 40.0
+one_shot = true
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "Orange"
+
+[node name="YellowTimer" type="Timer" parent="." unique_id=510767271]
+wait_time = 50.0
+one_shot = true
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "Yellow"
+
+[node name="EnemyTimer" type="Timer" parent="." unique_id=1256121128]
+wait_time = 15.0
+autostart = true
+script = ExtResource("2_c3sub")
+glumm = "enemy"
+
+[connection signal="timeout" from="FriendTimer" to="FriendTimer" method="_on_timeout"]
+[connection signal="timeout" from="WhiteTimer" to="WhiteTimer" method="_on_timeout"]
+[connection signal="timeout" from="BrownTimer" to="BrownTimer" method="_on_timeout"]
+[connection signal="timeout" from="PinkTimer" to="PinkTimer" method="_on_timeout"]
+[connection signal="timeout" from="DarkBlueTimer" to="DarkBlueTimer" method="_on_timeout"]
+[connection signal="timeout" from="OrangeTimer" to="OrangeTimer" method="_on_timeout"]
+[connection signal="timeout" from="YellowTimer" to="YellowTimer" method="_on_timeout"]
+[connection signal="timeout" from="EnemyTimer" to="EnemyTimer" method="_on_timeout"]

@@ -1,0 +1,9 @@
+res://scenes/game.tscn
+res://scripts/save_button.gd
+res://scenes/shop.gd
+res://scripts/shop_button.gd
+res://assets/gui/shop_button.tscn
+res://assets/entities/yellow_glumm.tscn
+res://scenes/game_manager.gd
+res://scripts/yellow_glumm.gd
+res://assets/entities/glumm_manager.tscn

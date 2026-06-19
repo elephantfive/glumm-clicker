@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://budmydefiq6t7"]
+
+[ext_resource type="Script" uid="uid://bfh4ptfqny5nl" path="res://scripts/orange_glumm.gd" id="1_qrdco"]
+[ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="2_t8mcu"]
+
+[node name="OrangeGlumm" type="Node2D" unique_id=1954778421]
+modulate = Color(1, 0.643137, 0.160784, 1)
+script = ExtResource("1_qrdco")
+
+[node name="glumm" parent="." unique_id=1622944406 instance=ExtResource("2_t8mcu")]
+speedmin = -1000.0
+speedmax = 1000.0
+respawnmin = 15
+respawnmax = 25
+
+[node name="Timer" type="Timer" parent="." unique_id=1818135198]
+
+[connection signal="clicked" from="glumm" to="." method="_on_glumm_clicked"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
