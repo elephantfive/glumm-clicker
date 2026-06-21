@@ -8,9 +8,13 @@
 script = ExtResource("1_qrdco")
 col = Color(0.86080706, 0.42847714, 7.70092e-07, 1)
 proj_scene = ExtResource("3_t8mcu")
+speedmin = -1000.0
+speedmax = 1000.0
+respawnmin = 20
+respawnmax = 30
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=1143961814]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

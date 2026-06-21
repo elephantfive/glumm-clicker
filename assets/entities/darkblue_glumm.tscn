@@ -8,9 +8,11 @@
 script = ExtResource("1_nw4f5")
 col = Color(0, 0, 1, 1)
 proj_scene = ExtResource("3_puwkh")
+respawnmin = 15
+respawnmax = 25
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=2015531988]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

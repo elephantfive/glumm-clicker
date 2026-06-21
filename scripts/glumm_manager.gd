@@ -1,6 +1,5 @@
 extends Node
 @onready var game_manager: Node = %GameManager
-@onready var glumm_manager: Node = $"."
 @onready var friend_timer: Timer = $FriendTimer
 @onready var projectile_holder = $"../ProjectileHolder"
 var glumms = {}

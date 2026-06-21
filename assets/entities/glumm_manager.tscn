@@ -7,7 +7,7 @@
 script = ExtResource("1_vxyf1")
 
 [node name="FriendTimer" type="Timer" parent="." unique_id=165032564]
-wait_time = 3.0
+wait_time = 4.0
 autostart = true
 script = ExtResource("2_c3sub")
 glumm = "friend"

@@ -8,3 +8,5 @@
 script = ExtResource("2_ui8it")
 col = Color(1, 0.4862745, 0.8392157, 1)
 proj_scene = ExtResource("3_phnwl")
+respawnmin = 15
+respawnmax = 25

@@ -8,3 +8,5 @@
 script = ExtResource("1_gbgvm")
 col = Color(1, 1, 0, 1)
 proj_scene = ExtResource("3_13vja")
+respawnmin = 20
+respawnmax = 30
