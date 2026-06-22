@@ -3,6 +3,7 @@ extends GlummBody
 func glumm_click():
 	for i in 4:
 		var bullet = proj_scene.instantiate()
+		bullet.projectile_bounce = modified_values["projectile_bounce"].current_value
 		bullet.current_speed = i
 		bullet.position = position
 		bullet.game_manager = game_manager

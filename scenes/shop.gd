@@ -21,6 +21,7 @@ func _ready():
 		new_button.glumm_manager = glumm_manager
 		new_button.posx = color_cols[upgrade.color]
 		new_button.posy = color_rows[upgrade.color]
+		color_cols[upgrade.color] += 1
 		new_button.upgrade = upgrade
 		add_child(new_button)
 

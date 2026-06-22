@@ -1,13 +1,6 @@
 res://scenes/game.tscn
 res://scenes/shop.gd
-res://scripts/shop_button.gd
-res://scripts/upgrade.gd
-res://assets/upgrades/upgrade.tres
-res://assets/upgrades/white_glumm_unlock.tres
-res://assets/upgrades/cursor_size.tres
-res://assets/gui/shop_button.tscn
-res://scripts/save_button.gd
-res://assets/entities/yellow_glumm.tscn
-res://assets/upgrades/yellow_glumm_projectile_count.tres
-res://scripts/yellow_glumm.gd
-res://scripts/glumm.gd
+res://assets/projectiles/orange_projectile.tscn
+res://scripts/orange_projectile.gd
+res://assets/entities/orange_glumm.tscn
+res://scripts/orange_glumm.gd

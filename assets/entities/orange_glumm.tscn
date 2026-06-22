@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bfh4ptfqny5nl" path="res://scripts/orange_glumm.gd" id="1_qrdco"]
 [ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="2_t8mcu"]
 [ext_resource type="PackedScene" uid="uid://ctm4g6q8a0o33" path="res://assets/projectiles/orange_projectile.tscn" id="3_t8mcu"]
+[ext_resource type="Script" uid="uid://cdba0clge7c0q" path="res://scripts/upgrade.gd" id="4_3i66c"]
+[ext_resource type="Resource" uid="uid://cpafto46o8gjd" path="res://assets/upgrades/orange_projectile_bounce.tres" id="5_dha26"]
 
 [node name="OrangeGlumm" unique_id=2136826150 instance=ExtResource("2_t8mcu")]
 script = ExtResource("1_qrdco")
@@ -12,6 +14,9 @@ speedmin = -1000.0
 speedmax = 1000.0
 respawnmin = 20
 respawnmax = 30
+modified_values = Dictionary[String, ExtResource("4_3i66c")]({
+"projectile_bounce": ExtResource("5_dha26")
+})
 
 [node name="Timer" type="Timer" parent="." index="5" unique_id=1143961814]
 wait_time = 3.0
