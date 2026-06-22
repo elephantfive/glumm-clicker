@@ -15,7 +15,7 @@ var posy_scaling: int = 150
 func _ready():
 	for unlock in game_manager.global:
 		if unlock.new_glumm_unlock:
-			if unlock.current_value > unlock.default_value:
+			if unlock.current_value > unlock.default_value and unlock.color not in shop.unlocked_glumms:
 				shop.unlocked_glumms.append(unlock.color)
 	position.x = posx_offest + (posx - 1) * posx_scaling
 	position.y = posy * posy_scaling

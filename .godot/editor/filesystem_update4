@@ -1,17 +1,1 @@
-res://assets/entities/orange_glumm.tscn
-res://assets/upgrades/orange_projectile_bounce.tres
-res://scenes/game.tscn
-res://scenes/shop.gd
-res://assets/upgrades/orange_glumm_unlock.tres
 res://scripts/shop_button.gd
-res://assets/entities/glumm_manager.tscn
-res://scripts/glumm_timer.gd
-res://assets/entities/glumm.tscn
-res://scripts/glumm.gd
-res://assets/entities/friend_glumm.tscn
-res://assets/entities/enemy_glumm.tscn
-res://assets/upgrades/darkblue_glumm_unlock.tres
-res://assets/upgrades/pink_glumm_unlock.tres
-res://assets/upgrades/brown_glumm_unlock.tres
-res://assets/upgrades/yellow_glumm_unlock.tres
-res://assets/gui/shop_button.tscn
