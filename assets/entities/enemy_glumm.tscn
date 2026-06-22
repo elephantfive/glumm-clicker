@@ -3,5 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dqvqjjj7w2sx8" path="res://assets/entities/glumm.tscn" id="2_lfhol"]
 
 [node name="EnemyGlumm" unique_id=2136826150 instance=ExtResource("2_lfhol")]
+collision_mask = 7
 col = Color(1, 0, 0, 1)
 type = "enemy"

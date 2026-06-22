@@ -5,17 +5,20 @@ extends Button
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var offset: float = 0
 var upgrade: Upgrade
-var unlocked_glumms = ['none']
 @onready var game_manager: GameManager
 var glumm_manager: Node2D
+var shop: Node2D
+var posx_scaling: int = 200
+var posx_offest: int = 50
+var posy_scaling: int = 150
 
 func _ready():
 	for unlock in game_manager.global:
 		if unlock.new_glumm_unlock:
 			if unlock.current_value > unlock.default_value:
-				unlocked_glumms.append(unlock.color)
-	position.x = 100 + (posx - 1) * 300
-	position.y = posy * 200
+				shop.unlocked_glumms.append(unlock.color)
+	position.x = posx_offest + (posx - 1) * posx_scaling
+	position.y = posy * posy_scaling
 
 func _physics_process(delta):
 	max_check()
@@ -43,14 +46,12 @@ func _on_pressed() -> void:
 		game_manager.score -= upgrade.price
 		upgrade.price += upgrade.price_increment
 		upgrade.current_value += upgrade.modified_increment
-		
-		#upgrade.modified_glumm.set(upgrade.modified_attribute, upgrade.current_value)
-		if upgrade.color not in unlocked_glumms:
-			unlocked_glumms.append(upgrade.color)
+		if upgrade.color not in shop.unlocked_glumms:
+			shop.unlocked_glumms.append(upgrade.color)
 		max_check()
 
 func max_check():
-	if upgrade.color in unlocked_glumms:
+	if upgrade.color in shop.unlocked_glumms:
 		upgrade.unlocked = true
 		
 	if upgrade.unlocked and upgrade.current_value < upgrade.max_value:

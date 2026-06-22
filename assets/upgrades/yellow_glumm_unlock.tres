@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://807tkvrty1tx"]
+
+[ext_resource type="Script" uid="uid://cdba0clge7c0q" path="res://scripts/upgrade.gd" id="1_go67e"]
+
+[resource]
+script = ExtResource("1_go67e")
+parameter_name = "Yellow Glumm Unlocked"
+text = "Unlock Yellow Glumm"
+unlocked = true
+new_glumm_unlock = true
+color = "yellow"
+modified_increment = 1
+max_value = 1
+metadata/_custom_type_script = "uid://cdba0clge7c0q"

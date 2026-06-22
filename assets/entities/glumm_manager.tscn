@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bqmc153vjpbpw" path="res://scripts/glumm_manager.gd" id="1_vxyf1"]
 [ext_resource type="Script" uid="uid://ordy27ouj2ru" path="res://scripts/glumm_timer.gd" id="2_c3sub"]
+[ext_resource type="Resource" uid="uid://eut4yu35kbol" path="res://assets/upgrades/white_glumm_unlock.tres" id="3_egbnr"]
+[ext_resource type="Resource" uid="uid://brvdele4i0jcc" path="res://assets/upgrades/orange_glumm_unlock.tres" id="4_i0ygy"]
+[ext_resource type="Resource" uid="uid://ed225h6bwvpm" path="res://assets/upgrades/brown_glumm_unlock.tres" id="4_vafra"]
+[ext_resource type="Resource" uid="uid://byy2703rlvxov" path="res://assets/upgrades/pink_glumm_unlock.tres" id="5_3xdp1"]
+[ext_resource type="Resource" uid="uid://rcpbcp213ue8" path="res://assets/upgrades/darkblue_glumm_unlock.tres" id="6_aahci"]
+[ext_resource type="Resource" uid="uid://807tkvrty1tx" path="res://assets/upgrades/yellow_glumm_unlock.tres" id="8_w77ep"]
 
 [node name="glumm_manager" type="Node2D" unique_id=456497758]
 script = ExtResource("1_vxyf1")
@@ -10,55 +16,55 @@ script = ExtResource("1_vxyf1")
 wait_time = 4.0
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "friend"
+glumm_type = "friend"
 
 [node name="WhiteTimer" type="Timer" parent="." unique_id=1438746075]
 wait_time = 20.0
 one_shot = true
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "White"
+glumm = ExtResource("3_egbnr")
 
 [node name="BrownTimer" type="Timer" parent="." unique_id=1233848325]
 wait_time = 5.0
 one_shot = true
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "Brown"
+glumm = ExtResource("4_vafra")
 
 [node name="PinkTimer" type="Timer" parent="." unique_id=553835192]
 wait_time = 10.0
 one_shot = true
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "Pink"
+glumm = ExtResource("5_3xdp1")
 
 [node name="DarkBlueTimer" type="Timer" parent="." unique_id=1335439183]
 wait_time = 30.0
 one_shot = true
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "Dark Blue"
+glumm = ExtResource("6_aahci")
 
 [node name="OrangeTimer" type="Timer" parent="." unique_id=365138043]
-wait_time = 40.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "Orange"
+glumm = ExtResource("4_i0ygy")
 
 [node name="YellowTimer" type="Timer" parent="." unique_id=510767271]
 wait_time = 50.0
 one_shot = true
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "Yellow"
+glumm = ExtResource("8_w77ep")
 
 [node name="EnemyTimer" type="Timer" parent="." unique_id=1256121128]
 wait_time = 15.0
 autostart = true
 script = ExtResource("2_c3sub")
-glumm = "enemy"
+glumm_type = "enemy"
 
 [connection signal="timeout" from="FriendTimer" to="FriendTimer" method="_on_timeout"]
 [connection signal="timeout" from="WhiteTimer" to="WhiteTimer" method="_on_timeout"]

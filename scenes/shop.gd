@@ -2,6 +2,8 @@ extends Node2D
 @onready var game_manager: GameManager = %GameManager
 const shopbutton = preload("res://assets/gui/shop_button.tscn")
 @onready var glumm_manager = %GlummManager
+var unlocked_glumms = ["none"]
+
 
 func _ready():
 	var current_row: int = 1
@@ -17,10 +19,11 @@ func _ready():
 			
 	for upgrade:Upgrade in game_manager.global:
 		var new_button = shopbutton.instantiate()
+		new_button.shop = self
 		new_button.game_manager = game_manager
 		new_button.glumm_manager = glumm_manager
-		new_button.posx = color_cols[upgrade.color]
-		new_button.posy = color_rows[upgrade.color]
+		new_button.posy = color_cols[upgrade.color]
+		new_button.posx = color_rows[upgrade.color]
 		color_cols[upgrade.color] += 1
 		new_button.upgrade = upgrade
 		add_child(new_button)

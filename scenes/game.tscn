@@ -12,9 +12,16 @@
 [ext_resource type="Script" uid="uid://de5pqiogw40l" path="res://scenes/main_menu.gd" id="5_kvpfn"]
 [ext_resource type="AudioStream" uid="uid://bwe06gph6r8xd" path="res://assets/sounds/menuselect.wav" id="5_kvuet"]
 [ext_resource type="Script" uid="uid://h4jibq5x57fe" path="res://scripts/main_menu_button.gd" id="5_vtaks"]
+[ext_resource type="Resource" uid="uid://ed225h6bwvpm" path="res://assets/upgrades/brown_glumm_unlock.tres" id="6_bt5mj"]
+[ext_resource type="Resource" uid="uid://brvdele4i0jcc" path="res://assets/upgrades/orange_glumm_unlock.tres" id="6_ssvqc"]
+[ext_resource type="Resource" uid="uid://cpafto46o8gjd" path="res://assets/upgrades/orange_projectile_bounce.tres" id="7_264po"]
+[ext_resource type="Resource" uid="uid://byy2703rlvxov" path="res://assets/upgrades/pink_glumm_unlock.tres" id="7_e1j6l"]
 [ext_resource type="Script" uid="uid://eynt4ekae776" path="res://scenes/shop.gd" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://boq41o0mbphtx" path="res://scripts/save_button.gd" id="8_dinhu"]
+[ext_resource type="Resource" uid="uid://rcpbcp213ue8" path="res://assets/upgrades/darkblue_glumm_unlock.tres" id="8_pl11u"]
 [ext_resource type="Script" uid="uid://bnkjsr5vwcvwl" path="res://scenes/save_select.gd" id="9_0tnpc"]
+[ext_resource type="Resource" uid="uid://807tkvrty1tx" path="res://assets/upgrades/yellow_glumm_unlock.tres" id="11_bhx41"]
+[ext_resource type="Resource" uid="uid://clb1tyeuao2av" path="res://assets/upgrades/yellow_glumm_projectile_count.tres" id="12_qnb83"]
 [ext_resource type="Script" uid="uid://cq174d574pugr" path="res://scenes/pause_menu.gd" id="14_trtic"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trtic"]
@@ -59,7 +66,7 @@ texture = ExtResource("1_uwrxv")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("1_lbhrr")
-global = Array[ExtResource("3_rysoc")]([ExtResource("3_ca42v"), ExtResource("3_ir15t")])
+global = Array[ExtResource("3_rysoc")]([ExtResource("3_ca42v"), ExtResource("3_ir15t"), ExtResource("6_bt5mj"), ExtResource("7_e1j6l"), ExtResource("8_pl11u"), ExtResource("6_ssvqc"), ExtResource("7_264po"), ExtResource("11_bhx41"), ExtResource("12_qnb83")])
 
 [node name="ScoreLabel" type="Label" parent="GameManager" unique_id=1630772149]
 visible = false
@@ -448,8 +455,8 @@ horizontal_alignment = 1
 [connection signal="pressed" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_pressed"]
 [connection signal="focus_exited" from="PauseMenu/ResumeButton" to="PauseMenu/ResumeButton" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="PauseMenu/ResumeButton" to="PauseMenu/ResumeButton" method="_on_mouse_entered"]
-[connection signal="pressed" from="PauseMenu/ResumeButton" to="GameManager" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="GameManager" method="_on_play_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="GameManager" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="SaveSelect" method="_on_play_button_pressed"]
 [connection signal="focus_exited" from="PauseMenu/MenuQuit" to="PauseMenu/MenuQuit" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="PauseMenu/MenuQuit" to="PauseMenu/MenuQuit" method="_on_mouse_entered"]

@@ -577,6 +577,7 @@ offset_left = -97.0
 offset_top = -58.0
 offset_right = 132.0
 offset_bottom = 69.0
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_3d1t4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=110614191]

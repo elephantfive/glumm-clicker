@@ -4,4 +4,7 @@
 
 [resource]
 script = ExtResource("1_25dk3")
+parameter_name = "Orange Projectile Bounce"
+color = "orange"
+max_value = 1
 metadata/_custom_type_script = "uid://cdba0clge7c0q"
