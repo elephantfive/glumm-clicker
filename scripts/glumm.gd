@@ -20,7 +20,7 @@ signal boom
 const WIDTH = 30
 const HEIGHT = 30
 
-var game_manager: Node
+var game_manager: GameManager
 var projectile_holder: Node
 var explode = false
 var dx = randf_range(speedmin, speedmax)
@@ -67,8 +67,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if layer == 2:
 		explode = true
 	elif layer == 1 and area.type != 'enemy':
-		if game_manager.global["Score"] > 0:
-			game_manager.global["Score"] -= 1
+		if game_manager.score > 0:
+			game_manager.score -= 1
 		area.glumm_die()
 	elif layer == 1 and type == 'enemy' and area.type == 'enemy':
 		pass

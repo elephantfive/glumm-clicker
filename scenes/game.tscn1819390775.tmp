@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b0ujudcn6on4l" path="res://assets/images/background.png" id="1_uwrxv"]
 [ext_resource type="FontFile" uid="uid://rb7bjyg7y537" path="res://assets/fonts/flavors.ttf" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://crpyt41trbvma" path="res://assets/entities/cursor_glumm.tscn" id="2_yqjtg"]
-[ext_resource type="Resource" uid="uid://bcji7bsakmxpr" path="res://assets/upgrades/cursor_size.tres" id="3_ca42v"]
-[ext_resource type="Resource" uid="uid://eut4yu35kbol" path="res://assets/upgrades/white_glumm_unlock.tres" id="3_ir15t"]
 [ext_resource type="AudioStream" uid="uid://d2vqk0lrenu5x" path="res://assets/sounds/braindance.mp3" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://3o3a165p0jga" path="res://assets/entities/glumm_manager.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://de5pqiogw40l" path="res://scenes/main_menu.gd" id="5_kvpfn"]
@@ -61,7 +59,7 @@ texture = ExtResource("1_uwrxv")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("1_lbhrr")
-global = [ExtResource("3_ca42v"), ExtResource("3_ir15t")]
+global = [null]
 
 [node name="ScoreLabel" type="Label" parent="GameManager" unique_id=1630772149]
 visible = false

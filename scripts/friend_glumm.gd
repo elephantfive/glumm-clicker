@@ -1,4 +1,4 @@
 extends GlummBody
 
 func glumm_click():
-	game_manager.global["Score"] += 1
+	game_manager.score += 1

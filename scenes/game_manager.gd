@@ -1,21 +1,12 @@
+class_name GameManager
+
 extends Node
 var savefile: int
 var save_selected = false
 
 #These values need to be loaded/saved
-var global = {
-	"Score" = 0,
-	"Cursor Size" = 1,
-	"White Projectile Pierce" = 0,
-	"White Glumm Unlocked" = 0,
-	"Brown Glumm Unlocked" = 0,
-	"Pink Glumm Unlocked" = 0,
-	"Dark Blue Glumm Unlocked" = 0,
-	"Yellow Glumm Unlocked" = 0,
-	"Orange Glumm Unlocked" = 0,
-	"Orange Projectile Bounce" = 1,
-	"Yellow Projectiles" = 1,
-}
+@export var global: Array[Upgrade]
+var score: int = 0
 @onready var main_menu = %MainMenu
 @onready var save_select = %SaveSelect
 @onready var play = %Play
@@ -24,7 +15,7 @@ var global = {
 @onready var score_label = $ScoreLabel
 
 func _process(_delta):
-	score_label.text = "Current Points: " + str(global["Score"])
+	score_label.text = "Current Points: " + str(score)
 	
 	#All scene changing takes place in the Game Manager
 	if main_menu.process_mode == PROCESS_MODE_INHERIT:
@@ -67,8 +58,14 @@ func unpause(scene):
 func save_game():
 	var file = FileAccess.open("user://savegame" + str(savefile) + ".json", FileAccess.WRITE)
 	var saved_data ={}
-	for key in global:
-		saved_data[key] = global[key]
+	saved_data["score"] = score
+	for upgrade:Upgrade in global:
+		for element in upgrade.saved_vals:
+			if upgrade.parameter_name in saved_data:
+				saved_data[(upgrade.parameter_name)][element] = upgrade.get(element)
+			else:
+				saved_data[upgrade.parameter_name] = {}
+				saved_data[(upgrade.parameter_name)][element] = upgrade.get(element)
 	var json = JSON.stringify(saved_data)
 	file.store_string(json)
 	file.close()

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bcji7bsakmxpr"]
+
+[ext_resource type="Script" uid="uid://cdba0clge7c0q" path="res://scripts/upgrade.gd" id="1_mquoh"]
+
+[resource]
+script = ExtResource("1_mquoh")
+parameter_name = "Cursor Size"
+default_value = 1
+metadata/_custom_type_script = "uid://cdba0clge7c0q"

@@ -1,0 +1,13 @@
+res://scenes/game.tscn
+res://scenes/game_manager.gd
+res://scripts/glumm.gd
+res://scripts/shop_button.gd
+res://assets/upgrades/upgrade.tres
+res://scripts/upgrade.gd
+res://scenes/main_menu.gd
+res://scripts/save_button.gd
+res://scripts/cursor_glumm.gd
+res://scripts/friend_glumm.gd
+res://assets/upgrades/white_glumm_unlock.tres
+res://assets/upgrades/score.tres
+res://assets/upgrades/cursor_size.tres

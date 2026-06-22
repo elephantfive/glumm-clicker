@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://eut4yu35kbol"]
+
+[ext_resource type="Script" uid="uid://cdba0clge7c0q" path="res://scripts/upgrade.gd" id="1_jvppv"]
+
+[resource]
+script = ExtResource("1_jvppv")
+parameter_name = "White Glumm Unlocked"
+unlocked = true
+default_price = 15
+modified_glumm = "white"
+modified_attribute = "Unlocked"
+modified_increment = 1
+metadata/_custom_type_script = "uid://cdba0clge7c0q"

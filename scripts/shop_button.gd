@@ -10,7 +10,7 @@ extends Button
 @onready var label = $Label
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var offset: float = 0
-@onready var game_manager: Node = %GameManager
+@onready var game_manager: GameManager = %GameManager
 @onready var glumm_manager = %GlummManager
 
 func _ready():
@@ -24,8 +24,9 @@ func _physics_process(delta):
 		if "Glumm" in parameter_text:
 			label.text = (parameter_text + "\n" + "\nPrice: " + str(price))
 		else:
-			price = game_manager.global[parameter] * 10
-			label.text = (parameter_text + "\n" + "Current value: " + str(game_manager.global[parameter]) + "\nCurrent Price: " + str(price))
+			pass
+			#price = game_manager.global[parameter] * 10
+			#label.text = (parameter_text + "\n" + "Current value: " + str(game_manager.global[parameter]) + "\nCurrent Price: " + str(price))
 		if frame == 0:
 			offset = -0.4
 		elif frame == 40:
@@ -38,25 +39,29 @@ func _physics_process(delta):
 		label.position.y += offset * 0.5
 
 func _on_pressed() -> void:
-	if game_manager.global["Score"] >= price:
+	if game_manager.score >= price:
 		if glumm_spawn != "":
 			glumm_manager.glummgen(glumm_spawn)
-		game_manager.global["Score"] -= price
-		game_manager.global[parameter] += parameter_increment
+		game_manager.score -= price
+		game_manager.score += parameter_increment
 		max_check()
 
 func max_check():
-	for unlock in game_manager.global:
+	for upgrade:Upgrade in game_manager.global:
 		var color: String
-		if "Unlocked" in unlock:
-			color = unlock.trim_suffix(" Glumm Unlocked")
-			if color in parameter and "Unlocked" not in parameter:
-				if game_manager.global[unlock] != 1:
-					disable_button()
-				else:
-					enable_button()
-	if game_manager.global[parameter] >= parameter_max:
-		disable_button()
+		
+	
+	#for unlock in game_manager.global:
+		#var color: String
+		#if "Unlocked" in unlock:
+			#color = unlock.trim_suffix(" Glumm Unlocked")
+			#if color in parameter and "Unlocked" not in parameter:
+				#if game_manager.global[unlock] != 1:
+					#disable_button()
+				#else:
+					#enable_button()
+	#if game_manager.global[parameter] >= parameter_max:
+		#disable_button()
 
 func disable_button():
 	label.text = ""
