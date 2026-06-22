@@ -6,6 +6,7 @@
 script = ExtResource("1_jvppv")
 parameter_name = "White Glumm Unlocked"
 unlocked = true
+color = "white"
 default_price = 15
 modified_glumm = "white"
 modified_attribute = "Unlocked"

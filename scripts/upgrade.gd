@@ -4,7 +4,8 @@ extends Resource
 
 @export var parameter_name: String
 
-@export var unlocked: bool
+@export var new_glumm_unlock: bool
+@export var color: String
 
 @export var default_price: int
 var price: int = default_price
@@ -16,7 +17,6 @@ var price: int = default_price
 
 @export var default_value: int
 var current_value: int = default_value
-@export var max_price_value: int
 
 
-var saved_vals = ["unlocked", "price", "current_value"]
+var saved_vals = ["price", "current_value"]

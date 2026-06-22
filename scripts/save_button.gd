@@ -50,10 +50,8 @@ func _on_focus_entered() -> void:
 	game_manager.savefile = savefile
 	save_data.text += 'Score: ' + str(game_manager.score) + '\n'
 	for upgrade:Upgrade in game_manager.global:
-		if "Unlocked" in upgrade.parameter_name:
-			if upgrade.current_value > upgrade.default_value:
-				save_data.text += upgrade.parameter_name + "\n"
-				var color = upgrade.parameter_name.trim_suffix(" Glumm Unlocked")
-				for attribute_upgrade: Upgrade in game_manager.global:
-					if attribute_upgrade.unlocked and color in attribute_upgrade.parameter_name and "Unlocked" not in upgrade.parameter_name:
-						save_data.text +=  attribute_upgrade.parameter_name + ": " + str(attribute_upgrade.current_value) + "\n"
+		if upgrade.new_glumm_unlock and upgrade.current_value > upgrade.default_value:
+			save_data.text += upgrade.parameter_name + "\n"
+			for attribute_upgrade:Upgrade in game_manager.global:
+				if attribute_upgrade.color == upgrade.color:
+					save_data.text +=  attribute_upgrade.parameter_name + ": " + str(attribute_upgrade.current_value) + "\n"
