@@ -10,6 +10,7 @@ extends Area2D
 @export var speedmax:float = 600
 @export var respawnmin = 5
 @export var respawnmax = 10
+@export var modified_values: Dictionary[String, Upgrade]
 
 @onready var burst_player = $AudioStreamPlayer2D
 @onready var glumm_respawn_timer: Timer = $glumm_respawn_timer

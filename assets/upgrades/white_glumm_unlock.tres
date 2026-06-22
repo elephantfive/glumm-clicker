@@ -5,10 +5,12 @@
 [resource]
 script = ExtResource("1_jvppv")
 parameter_name = "White Glumm Unlocked"
+text = "Unlock White Glumm"
 unlocked = true
+new_glumm_unlock = true
 color = "white"
-default_price = 15
 modified_glumm = "white"
 modified_attribute = "Unlocked"
 modified_increment = 1
+max_value = 1
 metadata/_custom_type_script = "uid://cdba0clge7c0q"

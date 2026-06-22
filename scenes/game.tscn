@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://h4jibq5x57fe" path="res://scripts/main_menu_button.gd" id="5_vtaks"]
 [ext_resource type="Script" uid="uid://eynt4ekae776" path="res://scenes/shop.gd" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://boq41o0mbphtx" path="res://scripts/save_button.gd" id="8_dinhu"]
-[ext_resource type="PackedScene" uid="uid://b1clovoijpowp" path="res://assets/gui/shop_button.tscn" id="8_gee14"]
 [ext_resource type="Script" uid="uid://bnkjsr5vwcvwl" path="res://scenes/save_select.gd" id="9_0tnpc"]
 [ext_resource type="Script" uid="uid://cq174d574pugr" path="res://scenes/pause_menu.gd" id="14_trtic"]
 
@@ -43,8 +42,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pl11u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhx41"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnb83"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sww3w"]
 
@@ -337,130 +334,6 @@ script = ExtResource("7_u5sy4")
 position = Vector2(960, 540)
 texture = ExtResource("1_uwrxv")
 
-[node name="CursorButton" parent="Shop" unique_id=1052524241 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 325.0
-offset_bottom = 325.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "Cursor Size"
-parameter_text = "Increase cursor size"
-parameter_increment = 1
-parameter_max = 100
-posx = 1
-posy = 1
-
-[node name="WhiteButton" parent="Shop" unique_id=923316605 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 325.0
-offset_bottom = 325.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "White Glumm Unlocked"
-parameter_text = "Unlock White Glumm"
-parameter_increment = 1
-parameter_max = 1
-posx = 1
-posy = 4
-price = 25
-glumm_spawn = "white"
-
-[node name="BrownButton" parent="Shop" unique_id=1103662233 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 325.0
-offset_bottom = 325.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "Brown Glumm Unlocked"
-parameter_text = "Unlock Brown Glumm"
-parameter_increment = 1
-parameter_max = 1
-posx = 2
-posy = 4
-price = 15
-glumm_spawn = "brown"
-
-[node name="PinkButton" parent="Shop" unique_id=1922941262 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 325.0
-offset_bottom = 325.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "Pink Glumm Unlocked"
-parameter_text = "Unlock Pink Glumm"
-parameter_increment = 1
-parameter_max = 1
-posx = 3
-posy = 4
-price = 50
-glumm_spawn = "pink"
-
-[node name="DarkBlueButton" parent="Shop" unique_id=234527222 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 325.0
-offset_bottom = 325.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "Dark Blue Glumm Unlocked"
-parameter_text = "Unlock Blue Glumm"
-parameter_increment = 1
-parameter_max = 1
-posx = 4
-posy = 4
-price = 75
-glumm_spawn = "darkblue"
-
-[node name="OrangeButton" parent="Shop" unique_id=235350383 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 325.0
-offset_bottom = 325.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "Orange Glumm Unlocked"
-parameter_text = "Unlock Orange Glumm"
-parameter_increment = 1
-parameter_max = 1
-posx = 5
-posy = 4
-price = 125
-glumm_spawn = "orange"
-
-[node name="YellowButton" parent="Shop" unique_id=438396562 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 325.0
-offset_bottom = 325.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "Yellow Glumm Unlocked"
-parameter_text = "Unlock Yellow Glumm"
-parameter_increment = 1
-parameter_max = 1
-posx = 6
-posy = 4
-price = 150
-glumm_spawn = "yellow"
-
-[node name="WhiteProjectilePierceButton" parent="Shop" unique_id=744375404 instance=ExtResource("8_gee14")]
-offset_left = 100.0
-offset_top = 800.0
-offset_right = 325.0
-offset_bottom = 925.0
-focus_mode = 1
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qnb83")
-parameter = "White Projectile Pierce"
-parameter_text = "Increase white pierce"
-parameter_increment = 1
-parameter_max = 100
-posx = 2
-posy = 1
-
 [node name="PauseMenu" type="Node2D" parent="." unique_id=2028923482]
 unique_name_in_owner = true
 process_mode = 4
@@ -573,14 +446,6 @@ horizontal_alignment = 1
 [connection signal="focus_exited" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_mouse_entered"]
 [connection signal="pressed" from="SaveSelect/SaveButton9" to="SaveSelect/SaveButton9" method="_on_pressed"]
-[connection signal="pressed" from="Shop/CursorButton" to="Shop/CursorButton" method="_on_pressed"]
-[connection signal="pressed" from="Shop/WhiteButton" to="Shop/WhiteButton" method="_on_pressed"]
-[connection signal="pressed" from="Shop/BrownButton" to="Shop/BrownButton" method="_on_pressed"]
-[connection signal="pressed" from="Shop/PinkButton" to="Shop/PinkButton" method="_on_pressed"]
-[connection signal="pressed" from="Shop/DarkBlueButton" to="Shop/DarkBlueButton" method="_on_pressed"]
-[connection signal="pressed" from="Shop/OrangeButton" to="Shop/OrangeButton" method="_on_pressed"]
-[connection signal="pressed" from="Shop/YellowButton" to="Shop/YellowButton" method="_on_pressed"]
-[connection signal="pressed" from="Shop/WhiteProjectilePierceButton" to="Shop/WhiteProjectilePierceButton" method="_on_pressed"]
 [connection signal="focus_exited" from="PauseMenu/ResumeButton" to="PauseMenu/ResumeButton" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="PauseMenu/ResumeButton" to="PauseMenu/ResumeButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="GameManager" method="_on_resume_button_pressed"]
